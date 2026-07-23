@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Mentalist OS</title>
+  <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaZu69xlAAPXaFqcQ85q2qJABkemw_I-JssaXuULc_pA&s=10" type="image/png">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header id="system-bar">
+    <div class="bar-left">
+      <div class="cbi-badge-container">
+        <span class="cbi-star">⭐</span>
+        <span class="cbi-badge-text">CBI SACRAMENTO</span>
+      </div>
+      <span class="bar-title">Mentalist OS</span>
+    </div>
+
+    <div class="bar-center">
+      <div class="search-wrapper">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="cbi-search-input" placeholder="Search 50+ CBI Characters, Suspects, Victims, Agents..." autocomplete="off" />
+        <div id="search-results-dropdown" class="hidden"></div>
+      </div>
+    </div>
+
+    <div class="bar-right">
+      <button class="app-launcher" id="launch-team">👥 Roster</button>
+      <button class="app-launcher" id="launch-devlog">📁 Logs</button>
+      <button class="app-launcher" id="launch-tea">☕ Tea</button>
+      <button class="app-launcher" id="launch-pinboard">📌 Evidence</button>
+      <button class="app-launcher" id="launch-notepad">📝 Notes</button>
+      <button class="app-launcher" id="launch-ambient">🎧 Ambience</button>
+      <span id="system-clock">--:-- --</span>
+    </div>
+  </header>
+
+  <div id="deduction-banner">
+    <span class="jane-icon">👁️</span>
+    <span id="deduction-ticker">Observation: Initializing investigator profile...</span>
+  </div>
+
+  <main id="desktop">
+
+    <div class="window" id="team-board-app" style="top: 25px; left: 30px; width: 720px;">
+      <div class="window-header">
+        <div class="folder-tab">
+          <span class="stamp">ROSTER</span>
+          <span class="window-title">CBI Major Crimes Unit — Official Roster</span>
+        </div>
+        <div class="window-controls">
+          <button class="win-btn close" aria-label="Close">✕</button>
+        </div>
+      </div>
+
+      <div class="window-body team-board-body">
+        <div class="team-grid">
+          
+          <div class="team-card">
+            <div class="member-img-frame">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDMhd5sfdQG3vl6FAkL0gFLXbRU1uHDMmsjj0Z4t-5XA&s=10" alt="Patrick Jane" class="roster-img" />
+            </div>
+            <div class="member-name">Patrick Jane</div>
+            <div class="member-role">CBI Consultant / Mentalist</div>
+            <div class="member-bio">Expert in observation, hypnosis, and social engineering.</div>
+          </div>
+
+          <div class="team-card">
+            <div class="member-img-frame">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSisOe76yx12KP8xpNqXhg8fyBgABKZ-QtzasRs8DpCQ&s" alt="Teresa Lisbon" class="roster-img" />
+            </div>
+            <div class="member-name">Teresa Lisbon</div>
+            <div class="member-role">Senior Special Agent / Unit Leader</div>
+            <div class="member-bio">Heads the Major Crimes Unit with strict adherence to procedure.</div>
+          </div>
+
+          <div class="team-card">
+            <div class="member-img-frame">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLn5sw-z4fu9EHJcyjsPTiMWqQWnhcwCuHzgLVi5tpYg&s" alt="Kimball Cho" class="roster-img" />
+            </div>
+            <div class="member-name">Kimball Cho</div>
+            <div class="member-role">Special Agent / Interrogator</div>
+            <div class="member-bio">Deadpan interrogator, tactical specialist, former military.</div>
+          </div>
+
+          <div class="team-card">
+            <div class="member-img-frame">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStk2dxj6e4WUvmv_t-2O9bKd1GsiUMBrrdjJmKDb4ekA&s=10" alt="Wayne Rigsby" class="roster-img" />
+            </div>
+            <div class="member-name">Wayne Rigsby</div>
+            <div class="member-role">Special Agent / Arson Specialist</div>
+            <div class="member-bio">Arson expert, heavy hitter, trained in ballistic trajectory.</div>
+          </div>
+
+          <div class="team-card">
+            <div class="member-img-frame">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6WmvwHU2kDJNUicDwJru9gaIgg03MInqcAw3W8VqzKA&s=10" alt="Grace Van Pelt" class="roster-img" />
+            </div>
+            <div class="member-name">Grace Van Pelt</div>
+            <div class="member-role">Special Agent / Tech Specialist</div>
+            <div class="member-bio">Database research, digital surveillance, and cyber intelligence.</div>
+          </div>
+
+          <div class="team-card director-card">
+            <div class="member-img-frame director-frame">
+              <img id="director-photo" src="director.png" onerror="this.src='https://via.placeholder.com/150/dcc89b/1a120c?text=Director+Srijit'" alt="Director Srijit Banerjee" class="roster-img" />
+            </div>
+            <div class="member-name">Srijit Banerjee</div>
+            <div class="member-role">CBI Director & Special Agent</div>
+            <div class="member-bio">Oversees Sacramento operations and high-priority case files.</div>
+            <input type="file" id="director-photo-upload" accept="image/*" style="display:none;" />
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="window" id="devlog-app" style="top: 50px; left: 160px; width: 620px;">
+      <div class="window-header">
+        <div class="folder-tab">
+          <span class="stamp">CLASSIFIED</span>
+          <span class="window-title">CBI Investigator's Log</span>
+        </div>
+        <div class="window-controls">
+          <button class="win-btn" id="edit-case-entry-btn" title="Edit Active Entry">✏️ Edit</button>
+          <button class="win-btn" id="add-case-entry-btn" title="Add New Entry">➕ New</button>
+          <button class="win-btn close" aria-label="Close">✕</button>
+        </div>
+      </div>
+
+      <div class="window-body devlog-container">
+        <div class="devlog-sidebar">
+          <div class="sidebar-title">📁 Case Logs</div>
+          <ul id="devlog-list">
+            </ul>
+        </div>
+        <div class="devlog-content" id="devlog-body">
+          </div>
+      </div>
+    </div>
+
+    <div class="window" id="tea-lounge" style="top: 80px; left: 740px; width: 340px;">
+      <div class="window-header">
+        <div class="folder-tab">
+          <span class="stamp">REC ROOM</span>
+          <span class="window-title">Patrick's Tea Lounge</span>
+        </div>
+        <div class="window-controls">
+          <button class="win-btn close" aria-label="Close">✕</button>
+        </div>
+      </div>
+      
+      <div class="window-body tea-body">
+        <div class="tea-icon">☕</div>
+        <p class="tea-quote">"A good cup of tea solves 90% of all mysteries."</p>
+
+        <div class="tea-presets">
+          <button class="tea-chip active" data-time="180">Earl Grey (3m)</button>
+          <button class="tea-chip" data-time="240">Green Tea (4m)</button>
+          <button class="tea-chip" data-time="300">Chamomile (5m)</button>
+        </div>
+
+        <div class="timer-display" id="tea-timer">03:00</div>
+
+        <div class="tea-controls">
+          <button id="tea-start-btn" class="tea-btn primary">Start Steeping</button>
+          <button id="tea-reset-btn" class="tea-btn">Reset</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="window" id="pinboard-app" style="top: 220px; left: 100px; width: 620px;">
+      <div class="window-header">
+        <div class="folder-tab">
+          <span class="stamp">EVIDENCE ROOM</span>
+          <span class="window-title">CBI Suspect Pinboard</span>
+        </div>
+        <div class="window-controls">
+          <button class="win-btn close" aria-label="Close">✕</button>
+        </div>
+      </div>
+
+      <div class="window-body corkboard-body">
+        <div class="pinboard-grid">
+          <div class="polaroid-card">
+            <div class="pin red-pin"></div>
+            <div class="polaroid-img-box"><img src="https://static1.personalitydatabase.net/2/pdb-images-prod/3c3b8496/profile_images/f64270341855432caf8e53f94d6eec38.png" alt="Mac Allister" /></div>
+            <div class="polaroid-label">Sherrif Mac Allister</div>
+            <div class="polaroid-status status-cleared">Napa County Sherrif</div>
+          </div>
+          <div class="polaroid-card">
+            <div class="pin red-pin"></div>
+            <div class="polaroid-img-box"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRgLiPlThue_zIG-iNMZHkoOHVbEijPo8-hmLeuokzNw&s=10" alt="Bertram" /></div>
+            <div class="polaroid-label">Gale Bertram</div>
+            <div class="polaroid-status status-cleared">CBI Director</div>
+          </div>
+          <div class="polaroid-card suspect-target">
+            <div class="pin red-pin"></div>
+            <div class="polaroid-img-box placeholder-suspect"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaZu69xlAAPXaFqcQ85q2qJABkemw_I-JssaXuULc_pA&s=10" alt="RED JOHN" /></div>
+            <div class="polaroid-label">RED JOHN</div>
+            <div class="polaroid-status status-wanted">UNIDENTIFIED</div>
+          </div>
+        </div>
+        <div class="pinboard-footer">
+          <span>📍 Red String Connections Active</span>
+          <span class="cbi-watermark">CONFIDENTIAL CBI PROPERTY</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="window" id="notepad-app" style="top: 170px; left: 540px; width: 440px;">
+      <div class="window-header">
+        <div class="folder-tab">
+          <span class="stamp">AUTO-SAVE</span>
+          <span class="window-title">Encrypted Field Notes</span>
+        </div>
+        <div class="window-controls">
+          <button class="win-btn close" aria-label="Close">✕</button>
+        </div>
+      </div>
+
+      <div class="window-body notepad-body">
+        <div class="notepad-toolbar">
+          <button id="save-note-archive-btn" class="notes-btn">💾 Save Archive</button>
+          <select id="notes-archive-select" class="notes-select">
+            <option value="">📜 Load Saved Note...</option>
+          </select>
+        </div>
+        <textarea id="field-notes" placeholder="Type confidential investigation notes here... (Auto-saves draft to browser memory)"></textarea>
+        <div class="notepad-status" id="notepad-save-status">Status: Draft Synced</div>
+      </div>
+    </div>
+
+    <div class="window" id="ambient-app" style="top: 310px; left: 720px; width: 330px; display: none;">
+      <div class="window-header">
+        <div class="folder-tab">
+          <span class="stamp">AUDIO</span>
+          <span class="window-title">CBI Office Soundscapes</span>
+        </div>
+        <div class="window-controls">
+          <button class="win-btn close" aria-label="Close">✕</button>
+        </div>
+      </div>
+      <div class="window-body ambient-body">
+        <div class="ambient-options">
+          <label class="sound-radio">
+            <input type="radio" name="soundscape" value="rain" checked />
+            <span>🌧️ Sacramento Rainy HQ</span>
+          </label>
+          <label class="sound-radio">
+            <input type="radio" name="soundscape" value="office" />
+            <span>☕ Late Night Office Hum</span>
+          </label>
+          <label class="sound-radio">
+            <input type="radio" name="soundscape" value="vinyl" />
+            <span>📻 Lo-Fi Jazz Vinyl Crackle</span>
+          </label>
+          <label class="sound-radio">
+            <input type="radio" name="soundscape" value="typing" />
+            <span>⌨️ Teletype & Interrogation Room</span>
+          </label>
+        </div>
+        <button id="toggle-ambient-btn" class="tea-btn primary">Start Soundscape</button>
+      </div>
+    </div>
+
+    <div id="cbi-badge-egg" title="Click to apply for CBI Special Consultant Badge...">
+      <span class="cbi-badge-icon">⭐</span>
+      <span class="badge-tag">CBI ID</span>
+    </div>
+
+    <div id="red-john-egg" title="Investigate subtle blood mark...">
+      <span class="rj-smiley">:)</span>
+    </div>
+
+  </main>
+
+  <div id="cbi-credential-modal" class="hidden">
+    <div class="modal-card">
+      <div class="modal-header">
+        <span class="modal-title">⭐ CBI SACRAMENTO — Badge Issuance</span>
+        <button id="close-badge-modal" class="win-btn">✕</button>
+      </div>
+      <div class="modal-body">
+        <div id="badge-form-pane">
+          <p class="modal-subtitle">Register your details under Director Srijit Banerjee's jurisdiction:</p>
+          <input type="text" id="consultant-name" placeholder="Your Full Name" class="badge-input" />
+          
+          <label class="badge-label">Previous Field of Experience:</label>
+          <select id="consultant-dept" class="badge-input">
+            <option value="Homicide & Major Crimes">Homicide & Major Crimes</option>
+            <option value="Arson & Explosives">Arson & Explosives</option>
+            <option value="Vice & Special Operations">Vice & Special Operations</option>
+            <option value="IT & Cyber Intelligence">IT & Cyber Intelligence</option>
+            <option value="Behavioral Analysis & Hypnosis">Behavioral Analysis & Hypnosis</option>
+            <option value="Narcotics Division">Narcotics Division</option>
+            <option value="Forensic Science & Ballistics">Forensic Science & Ballistics</option>
+          </select>
+
+          <button id="generate-badge-btn" class="tea-btn primary">Issue Digital CBI Badge</button>
+        </div>
+
+        <div id="badge-card-result" class="hidden">
+          <div class="official-cbi-badge-id" id="badge-to-download">
+            <div class="badge-top-bar">CALIFORNIA BUREAU OF INVESTIGATION</div>
+            <div class="badge-id-body">
+              <div class="badge-star-seal">⭐</div>
+              <div class="badge-details">
+                <h3 id="issued-name">Consultant Name</h3>
+                <p id="issued-role">Special Consultant</p>
+                <p id="issued-spec">Field: Homicide & Major Crimes</p>
+                <span class="badge-serial" id="issued-serial">ID: CBI-90482-CA</span>
+              </div>
+            </div>
+            <div class="badge-signature">Authorized by: Director Srijit Banerjee</div>
+          </div>
+          <button id="download-badge-btn" class="tea-btn primary" style="margin-top:12px;">📥 Download Badge Image</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="rj-overlay" class="hidden">
+    <div id="blood-drips-container"></div>
+    <div class="rj-overlay-content">
+      <div class="rj-giant-smiley">:)</div>
+      <div class="rj-scary-text">TYGER TYGER, BURNING BRIGHT...</div>
+    </div>
+  </div>
+
+  <div id="context-menu" class="hidden">
+    <ul>
+      <li id="cm-inspect">🔍 Inspect Desk Surface</li>
+      <li id="cm-team">👥 CBI Team Roster</li>
+      <li id="cm-badge">⭐ Apply for CBI Badge</li>
+      <li id="cm-tea">☕ Brew Tea Lounge</li>
+      <li id="cm-devlogs">📁 Open Case Logs</li>
+      <li id="cm-pinboard">📌 Evidence Pinboard</li>
+      <li id="cm-notepad">📝 Field Notepad</li>
+      <li id="cm-darkmode">🩸 Red John Mode</li>
+    </ul>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
